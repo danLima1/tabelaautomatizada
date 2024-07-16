@@ -4,81 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatórios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Relatórios</h1>
-    <h2>Entrada e Saída de Materiais</h2>
-    <table border="1">
-        <tr>
-            <th>Material</th>
-            <th>Quantidade</th>
-            <th>Data</th>
-            <th>Tipo</th>
-            <th>Custo</th>
-        </tr>
-        {% for row in entrada_saida %}
-        <tr>
-            {% for item in row %}
-            <td>{{ item }}</td>
-            {% endfor %}
-        </tr>
-        {% endfor %}
-    </table>
+    <div class="container">
+        <h1>Relatórios</h1>
+        <h2>Entrada e Saída</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Tipo</th>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Custo Unitário</th>
+                    <th>Total Custo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in entrada_saida %}
+                <tr>
+                    <td>{{ item.data }}</td>
+                    <td>{{ item.tipo }}</td>
+                    <td>{{ item.produto }}</td>
+                    <td>{{ item.quantidade }}</td>
+                    <td>{{ item.custo_unitario }}</td>
+                    <td>{{ item.total_custo }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-    <h2>Controle de Estoque</h2>
-    <table border="1">
-        <tr>
-            <th>Produto</th>
-            <th>Quantidade em Estoque</th>
-            <th>Valor de Venda</th>
-            <th>Custo de Compra</th>
-        </tr>
-        {% for row in controle_estoque %}
-        <tr>
-            {% for item in row %}
-            <td>{{ item }}</td>
-            {% endfor %}
-        </tr>
-        {% endfor %}
-    </table>
+        <!-- Repita o padrão para outros relatórios: Controle de Estoque, Registro de Vendas, Serviços -->
 
-    <h2>Registro de Venda</h2>
-    <table border="1">
-        <tr>
-            <th>Produto</th>
-            <th>Quantidade</th>
-            <th>Valor</th>
-            <th>Tipo de Pagamento</th>
-        </tr>
-        {% for row in registro_venda %}
-        <tr>
-            {% for item in row %}
-            <td>{{ item }}</td>
-            {% endfor %}
-        </tr>
-        {% endfor %}
-    </table>
-
-    <h2>Serviços</h2>
-    <table border="1">
-        <tr>
-            <th>Profissional</th>
-            <th>Serviço</th>
-            <th>Valor Total</th>
-            <th>Comissão do Estúdio</th>
-            <th>Data</th>
-            <th>Tipo de Pagamento</th>
-            <th>Observações</th>
-        </tr>
-        {% for row in servicos %}
-        <tr>
-            {% for item in row %}
-            <td>{{ item }}</td>
-            {% endfor %}
-        </tr>
-        {% endfor %}
-    </table>
-    <br>
-    <a href="{{ url_for('index') }}">Voltar ao Início</a>
+    </div>
 </body>
 </html>
