@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios</title>
+</head>
+<body>
+    <h1>Relatórios</h1>
+    <h2>Entrada e Saída de Materiais</h2>
+    <table border="1">
+        <tr>
+            <th>Material</th>
+            <th>Quantidade</th>
+            <th>Data</th>
+            <th>Tipo</th>
+            <th>Custo</th>
+        </tr>
+        {% for row in entrada_saida %}
+        <tr>
+            {% for item in row %}
+            <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Controle de Estoque</h2>
+    <table border="1">
+        <tr>
+            <th>Produto</th>
+            <th>Quantidade em Estoque</th>
+            <th>Valor de Venda</th>
+            <th>Custo de Compra</th>
+        </tr>
+        {% for row in controle_estoque %}
+        <tr>
+            {% for item in row %}
+            <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Registro de Venda</h2>
+    <table border="1">
+        <tr>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Valor</th>
+            <th>Tipo de Pagamento</th>
+        </tr>
+        {% for row in registro_venda %}
+        <tr>
+            {% for item in row %}
+            <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Serviços</h2>
+    <table border="1">
+        <tr>
+            <th>Profissional</th>
+            <th>Serviço</th>
+            <th>Valor Total</th>
+            <th>Comissão do Estúdio</th>
+            <th>Data</th>
+            <th>Tipo de Pagamento</th>
+            <th>Observações</th>
+        </tr>
+        {% for row in servicos %}
+        <tr>
+            {% for item in row %}
+            <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{{ url_for('index') }}">Voltar ao Início</a>
+</body>
+</html>

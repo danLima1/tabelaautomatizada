@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Estoque</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Gerenciamento de Estoque</h1>
+        <ul>
+            <li><a href="{{ url_for('entrada_saida') }}">Entrada e Saída de Materiais</a></li>
+            <li><a href="{{ url_for('controle_estoque') }}">Controle de Estoque</a></li>
+            <li><a href="{{ url_for('registro_venda') }}">Registro de Venda</a></li>
+            <li><a href="{{ url_for('servicos') }}">Serviços</a></li>
+            <li><a href="{{ url_for('relatorios') }}">Relatórios</a></li>
+        </ul>
+    </div>
+</body>
+</html>

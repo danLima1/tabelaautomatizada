@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Estoque</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Controle de Estoque</h1>
+        <form method="POST">
+            <label>Produto:</label>
+            <input type="text" name="produto" required><br>
+            <label>Quantidade em Estoque:</label>
+            <input type="number" name="quantidade" required><br>
+            <label>Valor de Venda:</label>
+            <input type="number" name="valor_venda" required><br>
+            <label>Custo de Compra:</label>
+            <input type="number" name="custo_compra" required><br>
+            <button type="submit">Registrar</button>
+        </form>
+        <a href="{{ url_for('index') }}">Voltar ao Início</a>
+    </div>
+</body>
+</html>
