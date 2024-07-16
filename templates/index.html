@@ -3,19 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciamento de Estoque</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Gerenciamento de Estoque e Vendas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Gerenciamento de Estoque</h1>
-        <ul>
-            <li><a href="{{ url_for('entrada_saida') }}">Entrada e Saída de Materiais</a></li>
-            <li><a href="{{ url_for('controle_estoque') }}">Controle de Estoque</a></li>
-            <li><a href="{{ url_for('registro_venda') }}">Registro de Venda</a></li>
-            <li><a href="{{ url_for('servicos') }}">Serviços</a></li>
-            <li><a href="{{ url_for('relatorios') }}">Relatórios</a></li>
-        </ul>
+        <h1 class="mt-5">Gerenciamento de Estoque e Vendas</h1>
+
+        <!-- Entrada e Saída -->
+        <div class="card mt-4">
+            <div class="card-header">
+                Entrada e Saída
+            </div>
+            <div class="card-body">
+                <form id="entrada_saida_form">
+                    <div class="form-group">
+                        <label for="data">Data</label>
+                        <input type="date" class="form-control" id="data" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo">Tipo</label>
+                        <select class="form-control" id="tipo" required>
+                            <option>Entrada</option>
+                            <option>Saída</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="produto">Produto</label>
+                        <input type="text" class="form-control" id="produto" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantidade">Quantidade</label>
+                        <input type="number" class="form-control" id="quantidade" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="custo_unitario">Custo Unitário</label>
+                        <input type="number" class="form-control" id="custo_unitario" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="total_custo">Total Custo</label>
+                        <input type="number" class="form-control" id="total_custo" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Controle de Estoque -->
+        <div class="card mt-4">
+            <div class="card-header">
+                Controle de Estoque
+            </div>
+            <div class="card-body">
+                <form id="controle_estoque_form">
+                    <div class="form-group">
+                        <label for="produto_estoque">Produto</label>
+                        <input type="text" class="form-control" id="produto_estoque" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantidade_estoque">Quantidade</label>
+                        <input type="number" class="form-control" id="quantidade_estoque" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="valor_venda">Valor de Venda</label>
+                        <input type="number" class="form-control" id="valor_venda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="custo_compra">Custo de Compra</label>
+                        <input type="number" class="form-control" id="custo_compra" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Registro de Vendas -->
+        <div class="card mt-4">
+            <div class="card-header">
+                Registro de Vendas
+            </div>
+            <div class="card-body">
+                <form id="registro_vendas_form">
+                    <div class="form-group">
+                        <label for="data_venda">Data</label>
+                        <input type="date" class="form-control" id="data_venda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="produto_venda">Produto</label>
+                        <input type="text" class="form-control" id="produto_venda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantidade_venda">Quantidade</label>
+                        <input type="number" class="form-control" id="quantidade_venda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="valor_unitario_venda">Valor Unitário</label>
+                        <input type="number" class="form-control" id="valor_unitario_venda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="valor_total_venda">Valor Total</label>
+                        <input type="number" class="form-control" id="valor_total_venda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo_pagamento_venda">Tipo de Pagamento</label>
+                        <input type="text" class="form-control" id="tipo_pagamento_venda" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Serviços -->
+        <div class="card mt-4">
+            <div class="card-header">
+                Serviços
+            </div>
+            <div class="card-body">
+                <form id="servicos_form">
+                    <div class="form-group">
+                        <label for="data_servico">Data</label>
+                        <input type="date" class="form-control" id="data_servico" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="servico">Serviço</label>
+                        <input type="text" class="form-control" id="servico" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profissional">Profissional</label>
+                        <input type="text" class="form-control" id="profissional" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="valor_total_servico">Valor Total</label>
+                        <input type="number" class="form-control" id="valor_total_servico" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="comissao_estudio">Comissão do Estúdio</label>
+                        <input type="number" class="form-control" id="comissao_estudio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo_pagamento_servico">Tipo de Pagamento</label>
+                        <input type="text" class="form-control" id="tipo_pagamento_servico" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="observacoes">Observações</label>
+                        <input type="text" class="form-control" id="observacoes" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Relatórios -->
+        <div class="card mt-4">
+            <div class="card-header">
+                Relatórios
+            </div>
+            <div class="card-body">
+                <button id="gerar_relatorios" class="btn btn-primary">Gerar Relatórios</button>
+                <div id="relatorios_result" class="mt-4"></div>
+            </div>
+        </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
